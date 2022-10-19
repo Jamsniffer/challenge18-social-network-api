@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const dateFormat = require('../utils/dateFormat');
+const dateFormat = require('../utils/date');
 
 const ReactionSchema = new Schema(
     {
@@ -36,7 +36,8 @@ const ThoughtSchema = new Schema({
         type: String,
         required: true,
         trim: true,
-        validate: { len: [1,280] },
+        maxLength: 280,
+        minLength: 1
     },
 
     createdAt: {
